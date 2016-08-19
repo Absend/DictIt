@@ -49,6 +49,15 @@
         public static void RemoveFromXml(string documentPath, string termName)
         {
             var root = XDocument.Load(documentPath).Root;
+            
+            foreach (var termElement in root.Elements("term"))
+            {
+                if (termElement.Element("name").Value == termName)
+                {
+                    termElement.Remove();
+                }
+            }
+            if (root.Document != null) root.Document.Save(documentPath);
         }
     }
 }

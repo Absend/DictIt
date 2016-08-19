@@ -21,13 +21,13 @@
         private IDictionary<string, string> terms;
         private ObservableCollection<string> namesList;
 
-        private string searchSample;
+        private string searchSample = null;
 
         private string contentAddBtn = "Add";
         private bool isAddVisible = false;
 
         private string selectedItemDescription;
-        private string selectedItem;
+        private string selectedItem = null;
 
         private string labelName = null;
 
@@ -84,12 +84,12 @@
             set
             {
                 this.selectedItem = value;
+                OnPropertyChanged("SelectedItem");
                 if (value != null)
                 {
                     this.labelName = value;
+                    OnPropertyChanged("LabelName");
                 }
-                OnPropertyChanged("SelectedItem");
-                OnPropertyChanged("LabelName");
             }
         }
         public string SelectedItemDescription
@@ -101,7 +101,7 @@
             set
             {
                 this.selectedItemDescription = value;
-                OnPropertyChanged("SelectedItem");
+                OnPropertyChanged("SelectedItemDescription");
             }
         }
 
@@ -113,13 +113,12 @@
             }
             set
             {
-                this.labelName = value;
-                OnPropertyChanged("LabelName");
                 if (value != null)
                 {
-                    this.selectedItemDescription = this.Terms[value];
-                    OnPropertyChanged("SelectedItemDescription");
+                    this.SelectedItemDescription = this.Terms[value];
                 }
+                this.labelName = value;
+                OnPropertyChanged("LabelName");
             }
         }
 
@@ -221,6 +220,8 @@
                         this.Terms[this.TermToAdd] = this.DescriptionToAdd;
                     }
                     MessageBox.Show(Logger.ItemSaved(this.TermToAdd));
+                    this.TermToAdd = null;
+                    this.DescriptionToAdd = null;
                 }
                 this.ContentAddBtn = "Add";
             }
@@ -233,7 +234,14 @@
         }
         private void HandleDeleteCommand(object obj)
         {
-            MessageBox.Show("Not implemented");
+            if (this.LabelName != null)
+            {
+                var itemToRemove = this.LabelName;
+                DataProvider.RemoveFromXml(Const.PathToTerms, this.LabelName);
+                this.SelectedItemDescription = null;
+                this.Names.Remove(this.LabelName);
+                MessageBox.Show(Logger.ItemRemoved(itemToRemove));
+            }
         }
 
         public ICommand EditCommand
@@ -254,4 +262,16 @@
             TextManager.SpeakTextFemale(this.LabelName + ", " + this.SelectedItemDescription);
         }
     }
+
+    //public void Ddcd()
+    //{
+    //    if (this.searchSample != null)
+    //    {
+    //        var matchedWord = TextManager.MatchedWord(this.searchSample, this.Names);
+    //        if (matchedWord != null)
+    //        {
+    //            this.LabelName = matchedWord;
+    //        }
+    //    }
+    //}
 }
