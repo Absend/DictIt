@@ -21,27 +21,19 @@
         private IDictionary<string, string> terms;
         private ObservableCollection<string> namesList;
 
-        private string searchSample = null;
+        private string searchSample;
+        private string labelName;
+        private string selectedItemDescription;
+
+        private string termToAdd;
+        private string descriptionToAdd;
 
         private string contentAddBtn = "Add";
         private bool isAddVisible = false;
 
-        private string selectedItemDescription;
-        private string selectedItem = null;
-
-        private string labelName = null;
-
-        private string termToAdd = null;
-        private string descriptionToAdd = null;
-
-
         //================================================================
 
-        public DictionaryViewModel() : this(new SortedDictionary<string, string>(), new List<string>())
-        {
-        }
-
-        public DictionaryViewModel(IDictionary<string, string> terms, IList<string> names)
+        public DictionaryViewModel()
         {
             this.Terms = DataProvider.TakeTermsFromXml(Const.PathToTerms);
             this.Names = DataProvider.TakeNamesFromXml(Const.PathToTerms);
@@ -74,24 +66,6 @@
             }
         }
 
-
-        public string SelectedItem
-        {
-            get
-            {
-                return this.selectedItem;
-            }
-            set
-            {
-                this.selectedItem = value;
-                OnPropertyChanged("SelectedItem");
-                if (value != null)
-                {
-                    this.labelName = value;
-                    OnPropertyChanged("LabelName");
-                }
-            }
-        }
         public string SelectedItemDescription
         {
             get
@@ -131,7 +105,6 @@
             set
             {
                 this.searchSample = value;
-                OnPropertyChanged("SearchSample");
                 if (this.searchSample != null)
                 {
                     var matchedWord = TextManager.MatchedWord(this.searchSample, this.Names);
@@ -140,6 +113,7 @@
                         this.LabelName = matchedWord;
                     }
                 }
+                OnPropertyChanged("SearchSample");
             }
         }
 
@@ -258,7 +232,16 @@
         }
         private void HandleEditCommand(object obj)
         {
-            MessageBox.Show("Not implemented");
+            this.IsAddVisible = !this.IsAddVisible;
+            this.ContentAddBtn = "Save";
+            if (this.LabelName != null)
+            {
+                this.SelectedItemDescription = null;
+                this.TermToAdd = this.LabelName;
+                this.DescriptionToAdd = this.Terms[this.LabelName];
+                DataProvider.RemoveFromXml(Const.PathToTerms, this.LabelName);
+                this.LabelName = null;
+            }
         }
 
         public ICommand VoiceCommand

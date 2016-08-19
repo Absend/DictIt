@@ -87,7 +87,7 @@
                         Text="{Binding TermToAdd}"/>
                     <Label/>
                     <GridSplitter/>
-                    <RichTextBox Height="450">
+                    <RichTextBox Height="430">
                         <FlowDocument>
                             <Paragraph Foreground="DarkGray">
                                 <Run Text="{Binding DescriptionToAdd}"/>
