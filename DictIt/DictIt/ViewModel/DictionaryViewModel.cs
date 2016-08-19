@@ -17,7 +17,7 @@
         private RelayCommand deleteCommand;
         private RelayCommand editCommand;
         private RelayCommand voiceCommand;
-        
+
         private IDictionary<string, string> terms;
         private ObservableCollection<string> namesList;
 
@@ -132,6 +132,14 @@
             {
                 this.searchSample = value;
                 OnPropertyChanged("SearchSample");
+                if (this.searchSample != null)
+                {
+                    var matchedWord = TextManager.MatchedWord(this.searchSample, this.Names);
+                    if (matchedWord != null)
+                    {
+                        this.LabelName = matchedWord;
+                    }
+                }
             }
         }
 
@@ -262,16 +270,4 @@
             TextManager.SpeakTextFemale(this.LabelName + ", " + this.SelectedItemDescription);
         }
     }
-
-    //public void Ddcd()
-    //{
-    //    if (this.searchSample != null)
-    //    {
-    //        var matchedWord = TextManager.MatchedWord(this.searchSample, this.Names);
-    //        if (matchedWord != null)
-    //        {
-    //            this.LabelName = matchedWord;
-    //        }
-    //    }
-    //}
 }

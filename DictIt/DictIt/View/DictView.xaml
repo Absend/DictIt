@@ -7,7 +7,7 @@
              xmlns:viewModels="clr-namespace:DictIt.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.DataContext>
         <viewModels:DictionaryViewModel/>
     </UserControl.DataContext>
@@ -42,7 +42,7 @@
                              FontSize="17" 
                              FontWeight="Normal" 
                              SpellCheck.IsEnabled="True"
-                             Text="{Binding SearchSample}"/>
+                             Text="{Binding SearchSample, UpdateSourceTrigger=PropertyChanged}"/>
                 </GroupBox>
                 <Label Grid.Column="1" 
                        Name="TermLabel"
@@ -87,7 +87,7 @@
                         Text="{Binding TermToAdd}"/>
                     <Label/>
                     <GridSplitter/>
-                    <RichTextBox Height="390">
+                    <RichTextBox Height="450">
                         <FlowDocument>
                             <Paragraph Foreground="DarkGray">
                                 <Run Text="{Binding DescriptionToAdd}"/>
