@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveDictionary", "InteractiveDictionary\InteractiveDictionary.csproj", "{82D0C81C-61C5-4C8D-9AA1-F95F3E1CF6E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictIt", "DictIt\DictIt.csproj", "{37A2A0B5-0349-4AD3-9802-4FB2F2B626A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictIt.Tests", "DictIt.Tests\DictIt.Tests.csproj", "{45B830A1-58F4-4DFA-A009-A4A138FAAF57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82D0C81C-61C5-4C8D-9AA1-F95F3E1CF6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82D0C81C-61C5-4C8D-9AA1-F95F3E1CF6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82D0C81C-61C5-4C8D-9AA1-F95F3E1CF6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82D0C81C-61C5-4C8D-9AA1-F95F3E1CF6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A2A0B5-0349-4AD3-9802-4FB2F2B626A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A2A0B5-0349-4AD3-9802-4FB2F2B626A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A2A0B5-0349-4AD3-9802-4FB2F2B626A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A2A0B5-0349-4AD3-9802-4FB2F2B626A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B830A1-58F4-4DFA-A009-A4A138FAAF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B830A1-58F4-4DFA-A009-A4A138FAAF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B830A1-58F4-4DFA-A009-A4A138FAAF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B830A1-58F4-4DFA-A009-A4A138FAAF57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

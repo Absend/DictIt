@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary>
+  <term>
+    <name>First</name>
+    <description>Hi there! What is going on?</description>
+  </term>
+  <term>
+    <name>second</name>
+    <description> just like first</description>
+  </term>
+</Dictionary>

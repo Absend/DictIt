@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="DictIt.View.DictView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DictIt.View" 
+             xmlns:viewModels="clr-namespace:DictIt.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.DataContext>
+        <viewModels:DictionaryViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
+        </Grid.Resources>
+        <Grid Background="LightSteelBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="305*"/>
+                    <ColumnDefinition Width="500*"/>
+                    <ColumnDefinition Width="110*"/>
+                    <ColumnDefinition Width="110*"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0"
+                          Header="Search" 
+                          Foreground="Blue" 
+                          FontSize="10" 
+                          FontStretch="Normal" >
+                    <TextBox Name="TextBoxSearch" 
+                             FontSize="17" 
+                             FontWeight="Normal" 
+                             SpellCheck.IsEnabled="True"
+                             Text="{Binding SearchSample}"/>
+                </GroupBox>
+                <Label Grid.Column="1" 
+                       Name="TermLabel"
+                       Content="{Binding LabelName}"
+                       Foreground="MidnightBlue"  
+                       FontSize="22" 
+                       FontWeight="Medium"/>
+                <Button Grid.Column="2"
+                        Name="BtnExample"
+                        Style="{StaticResource ButtonStyle}" 
+                        Content="Example"
+                        Visibility="Hidden"/>
+                <Button Grid.Column="3"
+                        Name="BtnVoice" 
+                        Style="{StaticResource ButtonStyle}" 
+                        Content="Voice" 
+                        Visibility="Visible"
+                        Command="{Binding VoiceCommand}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="9.5*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" 
+                        Name="ListBoxTerms" 
+                         ItemsSource="{Binding Names}"
+                         Foreground="MidnightBlue"
+                         FontSize="20"
+                         FontWeight="Bold"
+                         FontFamily="Segoe UI Emoji"
+                         SelectedItem="{Binding LabelName}"/>
+
+                <StackPanel Grid.Column="0"
+                            Background="LightSteelBlue"
+                            Visibility="{Binding IsAddVisible, 
+                    Converter={StaticResource VisibilityConverter}}">
+                    <Label/>
+                    <TextBox 
+                        Height="30" 
+                        FontSize="16"
+                        Text="{Binding TermToAdd}"/>
+                    <Label/>
+                    <GridSplitter/>
+                    <RichTextBox Height="390">
+                        <FlowDocument>
+                            <Paragraph Foreground="DarkGray">
+                                <Run Text="{Binding DescriptionToAdd}"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </StackPanel>
+
+                <RichTextBox Grid.Column="1"  
+                             Name="RichTextBoxDefinition" 
+                             Visibility="Visible"
+                             FontSize="16"
+                             Foreground="DarkGray">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="{Binding SelectedItemDescription}"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1125*"/>
+                    <ColumnDefinition Width="1125*"/>
+                    <ColumnDefinition Width="1125*"/>
+                    <ColumnDefinition Width="4220*"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Grid.Column="0" 
+                        Style="{StaticResource ButtonStyle}" 
+                    Name="BtnAdd" Margin="0,0,0,0.2" 
+                    Content="{Binding ContentAddBtn}"
+                    Command="{Binding AddCommand}"/>
+                <Button 
+                    Grid.Column="1" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Margin="0,0,0,0.2"
+                    Content="Delete" 
+                    Command="{Binding DeleteCommand}"/>
+                <Button 
+                    Grid.Column="2" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Margin="0,0,0,0.2" 
+                    Content="Edit" 
+                    Command="{Binding EditCommand}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
