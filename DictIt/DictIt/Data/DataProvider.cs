@@ -30,8 +30,7 @@
 
             foreach (var termElement in termsDocumentRoot.Elements("term"))
             {
-                terms.Add(termElement.Element("name").Value,
-                    termElement.Element("description").Value);
+                terms.Add(termElement.Element("name").Value, termElement.Element("description").Value);
             }
             return terms;
         }

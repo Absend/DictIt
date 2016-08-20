@@ -37,7 +37,8 @@
                           Header="Search" 
                           Foreground="Blue" 
                           FontSize="10" 
-                          FontStretch="Normal" >
+                          FontStretch="Normal" 
+                          FocusManager.FocusedElement="{Binding ElementName=TextBoxSearch}">
                     <TextBox Name="TextBoxSearch" 
                              FontSize="17" 
                              FontWeight="Normal" 
@@ -78,10 +79,11 @@
 
                 <StackPanel Grid.Column="0"
                             Background="LightSteelBlue"
-                            Visibility="{Binding IsAddVisible, 
-                    Converter={StaticResource VisibilityConverter}}">
+                            Visibility="{Binding IsAddVisible, Converter={StaticResource VisibilityConverter}}"
+                            FocusManager.FocusedElement="{Binding ElementName=BoxTerm}">
                     <Label/>
                     <TextBox 
+                        Name="BoxTerm"
                         Height="30" 
                         FontSize="16"
                         Text="{Binding TermToAdd}"/>
@@ -89,8 +91,8 @@
                     <GridSplitter/>
                     <RichTextBox Height="430">
                         <FlowDocument>
-                            <Paragraph Foreground="DarkGray">
-                                <Run Text="{Binding DescriptionToAdd}"/>
+                            <Paragraph>
+                                <Run Foreground="MidnightBlue" Text="{Binding DescriptionToAdd}"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
@@ -99,11 +101,10 @@
                 <RichTextBox Grid.Column="1"  
                              Name="RichTextBoxDefinition" 
                              Visibility="Visible"
-                             FontSize="16"
-                             Foreground="DarkGray">
+                             FontSize="16">
                     <FlowDocument>
                         <Paragraph>
-                            <Run Text="{Binding SelectedItemDescription}"/>
+                            <Run Foreground="MidnightBlue" Text="{Binding SelectedItemDescription}"/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
