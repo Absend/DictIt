@@ -1,13 +1,13 @@
 ﻿namespace DictIt.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using DictIt.Model;
 
-    [TestClass]
+    [TestFixture]
     public class LoggerTest
     {
 
-        [TestMethod]
+        [Test]
         public void ItemSaved_ShouldReturnRightMassage()
         {
             var item = "Term";

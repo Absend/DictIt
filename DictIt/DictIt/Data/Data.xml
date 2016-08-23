@@ -8,4 +8,8 @@
     <name>delegate</name>
     <description>A function pointer.</description>
   </term>
+  <term>
+    <name>method</name>
+    <description>A function.</description>
+  </term>
 </dictionary>

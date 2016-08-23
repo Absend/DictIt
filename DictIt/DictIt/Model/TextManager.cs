@@ -37,6 +37,7 @@
                 syntizer.Speak(text);
             }
         }
+
         public static void SpeakTextMale(string text)
         {
             if (!string.IsNullOrEmpty(text))

@@ -1,10 +1,10 @@
 ﻿namespace DictIt.Tests
 {
     using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using DictIt.Model;
 
-    [TestClass]
+    [TestFixture]
     public class TextManagerTest
     {
         private IList<string> SampleList()
@@ -19,7 +19,7 @@
             };
         }
 
-        [TestMethod]
+        [Test]
         public void MatchedWord_ShouldReturnNull_IfCheckedListDoNotContainSearchedWord()
         {
             var sampleList = SampleList();
@@ -32,7 +32,7 @@
 
         }
 
-        [TestMethod]
+        [Test]
         public void MatchedWord_ShouldReturnSearchedWord_IfCheckedListContainsIt()
         {
             var sampleList = SampleList();
