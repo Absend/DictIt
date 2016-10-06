@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test>
+  <term>
+    <name>newTerm</name>
+    <description>description</description>
+  </term>
+  <term>
+    <name>newTerm</name>
+    <description>description</description>
+  </term>
+</test>

@@ -20,7 +20,7 @@
         }
 
         [Test]
-        public void MatchedWord_ShouldReturnNull_IfCheckedListDoNotContainSearchedWord()
+        public void MatchedWord_ShouldReturnNull_IfCheckedListDoesNotContainSearchedWord()
         {
             var sampleList = SampleList();
             var searchWord = "agne";

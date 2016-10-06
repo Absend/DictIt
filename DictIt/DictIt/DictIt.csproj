@@ -114,7 +114,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLib\BusinessLib.csproj">
+      <Project>{10b78211-364b-46cf-b310-22457f5669d2}</Project>
+      <Name>BusinessLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTFEditor\RTFEditor.csproj">
+      <Project>{6aec74bd-eee6-4402-93b0-4d4163e15e98}</Project>
+      <Name>RTFEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\Data.xml" />
   </ItemGroup>

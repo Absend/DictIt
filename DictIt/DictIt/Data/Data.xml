@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dictionary>
   <term>
-    <name>abstract class</name>
-    <description>Something between class and interface. It could not be instantiantion, only can be inherited.</description>
-  </term>
-  <term>
-    <name>delegate</name>
-    <description>A function pointer.</description>
-  </term>
-  <term>
-    <name>method</name>
-    <description>A function.</description>
+    <name>rty</name>
+    <description>gjhjgh</description>
   </term>
 </dictionary>
