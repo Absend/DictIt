@@ -7,10 +7,10 @@
         xmlns:view="clr-namespace:DictIt.View"
         mc:Ignorable="d"
         Title="DictIt" 
-        Width="980"
+        Width="1200"
         Height="600"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanMinimize"
+        ResizeMode="CanResize"
         Background="LightSlateGray">
     <Grid>
         <Border>

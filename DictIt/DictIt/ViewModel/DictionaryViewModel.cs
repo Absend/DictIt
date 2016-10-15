@@ -180,11 +180,7 @@
         }
         private void HandleAddCommand(object obj)
         {
-            if (!this.IsAddVisible)
-            {
-                this.ContentAddBtn = "Save";
-            }
-            else
+            if (this.IsAddVisible)
             {
                 var term = new Term(this.TermToAdd, this.DescriptionToAdd);
 
@@ -206,6 +202,10 @@
                     this.DescriptionToAdd = null;
                 }
                 this.ContentAddBtn = "Add";
+            }
+            else
+            {
+                this.ContentAddBtn = "Save";
             }
             this.IsAddVisible = !this.IsAddVisible;
         }
@@ -232,15 +232,18 @@
         }
         private void HandleEditCommand(object obj)
         {
-            this.IsAddVisible = !this.IsAddVisible;
-            this.ContentAddBtn = "Save";
-            if (this.LabelName != null)
+            if (!this.IsAddVisible)
             {
-                this.SelectedItemDescription = null;
-                this.TermToAdd = this.LabelName;
-                this.DescriptionToAdd = this.Terms[this.LabelName];
-                DataProvider.RemoveFromXml(Const.PathToTerms, this.LabelName);
-                this.LabelName = null;
+                this.IsAddVisible = !this.IsAddVisible;
+                this.ContentAddBtn = "Save";
+                if (this.LabelName != null)
+                {
+                    this.SelectedItemDescription = null;
+                    this.TermToAdd = this.LabelName;
+                    this.DescriptionToAdd = this.Terms[this.LabelName];
+                    DataProvider.RemoveFromXml(Const.PathToTerms, this.LabelName);
+                    this.LabelName = null;
+                }
             }
         }
 

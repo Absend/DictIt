@@ -52,11 +52,11 @@
                        Foreground="DarkMagenta"  
                        FontSize="22" 
                        FontWeight="Medium"/>
-                <Button Grid.Column="2"
-                        Name="BtnExample"
+                <!--<Button Grid.Column="2"
+                        Name="BtnTransfer"
                         Style="{StaticResource ButtonStyle}" 
-                        Content="Example"
-                        Visibility="Hidden"/>
+                        Content="Transfer"
+                        Visibility="Visible"/>-->
                 <Button Grid.Column="3"
                         Name="BtnVoice" 
                         Style="{StaticResource ButtonStyle}" 
